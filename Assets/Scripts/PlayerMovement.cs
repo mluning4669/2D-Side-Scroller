@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator anim;
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -27,5 +28,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, speed);
         }
+
+        anim.SetBool("IsRunning", horizontalInput != 0);
     }
 }
