@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
             timer = cooldown;
         }
     }
+
     public void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
