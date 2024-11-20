@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 1421968033}
   - component: {fileID: 1421968035}
   - component: {fileID: 1421968036}
+  - component: {fileID: 1421968037}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1243,7 +1244,7 @@ Transform:
   m_GameObject: {fileID: 1421968029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.32, y: -0.231, z: 0}
+  m_LocalPosition: {x: -0.32, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1391,6 +1392,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rb: {fileID: 1421968035}
+  anim: {fileID: 1421968032}
+  cooldown: 0.5
+  jump: 6
+  playerCombat: {fileID: 1421968037}
+--- !u!114 &1421968037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421968029}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88755f9b1a7b32e4190ef4d9915f8447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   anim: {fileID: 1421968032}
 --- !u!1 &1915921387
 GameObject:
