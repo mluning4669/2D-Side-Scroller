@@ -15,13 +15,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform detectionPoint;
     [SerializeField] private float obstacleDetectRange;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float patrolRange;
+    [SerializeField] private float patrolRadius;
 
     private EnemyState enemyState;
     private int facingDirection = -1;
     private Transform player;
     private Rigidbody2D rb;
     private Animator anim;
+    private float distancePatroled;
     // Start is called before the first frame update
     public void Start()
     {
