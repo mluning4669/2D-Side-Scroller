@@ -6,7 +6,6 @@ using UnityEngine.XR;
 public enum EnemyState
 {
     Idle,
-    Chasing,
     Patroling,
 }
 public class EnemyMovement : MonoBehaviour
@@ -14,8 +13,9 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private Transform detectionPoint;
-    [SerializeField] private float playerDetectRange;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private float obstacleDetectRange;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float patrolRange;
 
     private EnemyState enemyState;
     private int facingDirection = -1;
@@ -27,41 +27,30 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        ChangeState(EnemyState.Idle);
+        ChangeState(EnemyState.Patroling);
+        rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
     }
 
     // Update is called once per frame
     public void Update()
     {
-        CheckForPlayer();
+        CheckForObstacle();
+        Patrol();
     }
 
-    void Chase()
+    private void Patrol()
     {
-        if (player.position.x > transform.position.x && facingDirection == -1 ||
-                 player.position.x < transform.position.x && facingDirection == 1)
-        {
-            Flip();
-        }
-
         rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
     }
 
-    private void CheckForPlayer()
+    private void CheckForObstacle()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, playerDetectRange, playerLayer);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, groundLayer);
 
         if (hits.Length > 0)
         {
-            player = hits[0].transform;
-            Chase();
+            Flip();
         }
-        else
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-            ChangeState(EnemyState.Idle);
-        }
-
     }
 
     void Flip()
@@ -78,8 +67,8 @@ public class EnemyMovement : MonoBehaviour
                 anim.SetBool("IsIdle", false);
                 break;
 
-            case EnemyState.Chasing:
-                anim.SetBool("IsChasing", false);
+            case EnemyState.Patroling:
+                anim.SetBool("IsPatroling", false);
                 break;
         }
 
@@ -91,8 +80,8 @@ public class EnemyMovement : MonoBehaviour
                 anim.SetBool("IsIdle", true);
                 break;
 
-            case EnemyState.Chasing:
-                anim.SetBool("IsChasing", true);
+            case EnemyState.Patroling:
+                anim.SetBool("IsPatroling", true);
                 break;
         }
     }
@@ -100,6 +89,6 @@ public class EnemyMovement : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(detectionPoint.position, playerDetectRange);
+        Gizmos.DrawWireSphere(detectionPoint.position, obstacleDetectRange);
     }
 }
