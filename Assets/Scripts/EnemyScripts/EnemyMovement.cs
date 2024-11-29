@@ -14,15 +14,13 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform detectionPoint;
     [SerializeField] private float obstacleDetectRange;
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float patrolRadius;
+    [SerializeField] private LayerMask wallLayer;
 
     private EnemyState enemyState;
     private int facingDirection = -1;
-    private Transform player;
+
     private Rigidbody2D rb;
     private Animator anim;
-    private float distancePatroled;
     // Start is called before the first frame update
     public void Start()
     {
@@ -35,7 +33,7 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        CheckForObstacle();
+        DirectionChangeCheck();
         Patrol();
     }
 
@@ -44,9 +42,9 @@ public class EnemyMovement : MonoBehaviour
         rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
     }
 
-    private void CheckForObstacle()
+    private void DirectionChangeCheck()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, groundLayer);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, wallLayer);
 
         if (hits.Length > 0)
         {
