@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a2d47852f9123a04a8861a92a17cd80e
+guid: ad1547d69d66d5943a6d27263b8bd005
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,55 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Closiong (46x56)_0
+      name: Idle_resized_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55f1927efb3df8341862b5eedfde4455
+      internalID: 547103062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_resized_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fedb8b36e07e4744865f0c9f9afe7ae
+      internalID: 1331440409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_resized_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 46
-        height: 56
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c96a7adfae7b3e42aa355645843a666
-      internalID: -962251578
+      spriteID: ee3fe9f1697d74a4f937af6588913306
+      internalID: 62540699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Closiong (46x56)_1
+      name: Idle_resized_3
       rect:
         serializedVersion: 2
-        x: 46
+        x: 32
         y: 0
-        width: 46
-        height: 56
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,29 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adce0f2aa73f9014cbceea9f3819677d
-      internalID: 553208295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Closiong (46x56)_2
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 0
-        width: 46
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1aba0669dcb69341a09af8c527c11fa
-      internalID: -1865458321
+      spriteID: a259b669e85d292419cd0b7f6460b533
+      internalID: 851848335
       vertices: []
       indices: 
       edges: []
@@ -170,9 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Closiong (46x56)_0: -962251578
-      Closiong (46x56)_1: 553208295
-      Closiong (46x56)_2: -1865458321
+      Idle_resized_0: 547103062
+      Idle_resized_1: 1331440409
+      Idle_resized_2: 62540699
+      Idle_resized_3: 851848335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
