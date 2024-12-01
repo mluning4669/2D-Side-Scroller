@@ -19,6 +19,7 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyState enemyState;
     private int facingDirection = -1;
+    private float knockbackCounter = 0;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -27,34 +28,54 @@ public class EnemyMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        ChangeState(EnemyState.Patroling);
-        rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
     }
 
     // Update is called once per frame
     public void Update()
     {
-        if (enemyState != EnemyState.Knockback)
+        if (enemyState == EnemyState.Idle)
         {
-            DirectionChangeCheck();
+            ChangeState(EnemyState.Patroling);
+            Walk();
+        }
+        else if (enemyState == EnemyState.Patroling)
+        {
             Patrol();
         }
+        else if (enemyState == EnemyState.Knockback)
+        {
+            if (Mathf.Abs(rb.velocity.x) < 0.01f)
+            {
+                ChangeState(EnemyState.Patroling);
+            }
+        }
 
+    }
+
+    public void StartKnockback(Vector2 velocity)
+    {
+        ChangeState(EnemyState.Knockback);
+        rb.velocity = velocity;
     }
 
     private void Patrol()
     {
-        rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
-    }
-
-    private void DirectionChangeCheck()
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, wallLayer);
-
-        if (hits.Length > 0)
+        if (DirectionChangeCheck())
         {
             Flip();
         }
+        Walk();
+    }
+
+    private void Walk()
+    {
+        rb.velocity = new Vector2(facingDirection * speed, rb.velocity.y);
+    }
+
+    private bool DirectionChangeCheck()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, wallLayer);
+        return hits.Length > 0;
     }
 
     void Flip()
@@ -74,6 +95,10 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Patroling:
                 anim.SetBool("IsPatroling", false);
                 break;
+
+            case EnemyState.Knockback:
+                anim.SetBool("IsKnockingback", false);
+                break;
         }
 
         enemyState = newState;
@@ -86,6 +111,10 @@ public class EnemyMovement : MonoBehaviour
 
             case EnemyState.Patroling:
                 anim.SetBool("IsPatroling", true);
+                break;
+
+            case EnemyState.Knockback:
+                anim.SetBool("IsKnockingback", true);
                 break;
         }
     }

@@ -13,8 +13,6 @@ public class PlayerCombat : MonoBehaviour
     //TODO: move these fields to a stats manager later
     [SerializeField] private float weaponRange;
     [SerializeField] private float knockbackForce;
-    [SerializeField] private float knockbackTime;
-    [SerializeField] private float stunTime;
 
     public void Attack()
     {
@@ -28,10 +26,10 @@ public class PlayerCombat : MonoBehaviour
         if (enemies.Length > 0)
         {
             //knockback here
-            EnemyKnockback enemyKnockback = enemies[1].GetComponent<EnemyKnockback>();
+            EnemyKnockback enemyKnockback = enemies[0].GetComponent<EnemyKnockback>();
             if (enemyKnockback != null) //for things that cannot be knocked back like buildings
             {
-                enemyKnockback.Knockback(transform, knockbackForce, knockbackTime, stunTime);
+                enemyKnockback.Knockback(transform, knockbackForce);
             }
         }
     }
