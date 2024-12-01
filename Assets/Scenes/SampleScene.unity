@@ -2018,6 +2018,7 @@ GameObject:
   - component: {fileID: 897861328}
   - component: {fileID: 897861327}
   - component: {fileID: 897861330}
+  - component: {fileID: 897861331}
   m_Layer: 6
   m_Name: Pig
   m_TagString: Untagged
@@ -2239,6 +2240,18 @@ MonoBehaviour:
   wallLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &897861331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897861323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1c0db296bbe0f4cad09a61348f7e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217521136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,10 +3547,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 1421968032}
   attackPoint: {fileID: 569390783}
-  weaponRange: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  weaponRange: 1
+  knockbackForce: 10
+  knockbackTime: 1
+  stunTime: 1
 --- !u!1 &1915921387
 GameObject:
   m_ObjectHideFlags: 0

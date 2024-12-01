@@ -7,6 +7,7 @@ public enum EnemyState
 {
     Idle,
     Patroling,
+    Knockback,
 }
 public class EnemyMovement : MonoBehaviour
 {   
@@ -33,8 +34,12 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        DirectionChangeCheck();
-        Patrol();
+        if (enemyState != EnemyState.Knockback)
+        {
+            DirectionChangeCheck();
+            Patrol();
+        }
+
     }
 
     private void Patrol()
