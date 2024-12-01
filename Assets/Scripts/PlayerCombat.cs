@@ -25,11 +25,14 @@ public class PlayerCombat : MonoBehaviour
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer);
 
-        //knockback here
-        EnemyKnockback enemyKnockback = enemies[1].GetComponent<EnemyKnockback>(); 
-        if (enemyKnockback != null) //for things that cannot be knocked back like buildings
+        if (enemies.Length > 0)
         {
-            enemyKnockback.Knockback(transform, knockbackForce, knockbackTime, stunTime);
+            //knockback here
+            EnemyKnockback enemyKnockback = enemies[1].GetComponent<EnemyKnockback>();
+            if (enemyKnockback != null) //for things that cannot be knocked back like buildings
+            {
+                enemyKnockback.Knockback(transform, knockbackForce, knockbackTime, stunTime);
+            }
         }
     }
 
