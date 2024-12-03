@@ -15,11 +15,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform detectionPoint;
     [SerializeField] private float obstacleDetectRange;
-    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask patrolLayer;
 
     private EnemyState enemyState;
     private int facingDirection = -1;
-    private float knockbackCounter = 0;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -74,7 +73,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool DirectionChangeCheck()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, wallLayer);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, patrolLayer);
         return hits.Length > 0;
     }
 

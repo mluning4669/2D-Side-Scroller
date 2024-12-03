@@ -10,8 +10,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private float cooldown;
     [SerializeField] private float jump;
+    [SerializeField] private LayerMask groundLayer;
+
     public PlayerCombat playerCombat;
     private float timer = 0;
+    private BoxCollider2D boxCollider;
+    
+
+    public void Start()
+    {
+        boxCollider = GetComponent<BoxCollider2D>();
+    }
 
     // Update is called once per frame
     public void Update()
@@ -44,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
             anim.SetBool("IsJumping", true);
@@ -52,8 +61,14 @@ public class PlayerMovement : MonoBehaviour
 
 
         anim.SetBool("IsRunning", horizontalInput != 0);
-        anim.SetBool("IsJumping", rb.velocity.y > 0.01f);
-        anim.SetBool("IsFalling", rb.velocity.y < -0.01f);
+        anim.SetBool("IsJumping", rb.velocity.y > 0.01f && !IsGrounded());
+        anim.SetBool("IsFalling", rb.velocity.y < -0.01f && !IsGrounded());
     }
 
+    private bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+
+        return hit.collider != null;
+    }
 }
