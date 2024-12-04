@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        anim.SetBool("IsRunning", horizontalInput != 0);
+        anim.SetBool("IsRunning", horizontalInput != 0 && IsGrounded());
         anim.SetBool("IsJumping", rb.velocity.y > 0.01f && !IsGrounded());
         anim.SetBool("IsFalling", rb.velocity.y < -0.01f && !IsGrounded());
     }
