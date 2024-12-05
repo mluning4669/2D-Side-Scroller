@@ -5,8 +5,7 @@ TODO:
 	fix king's infinite jumping - DONE
 	use raycasting to test if king is on the ground or airborne - DONE
 	make king's jump force proportional to the time the jump button is pressed - DONE
-	fix issue with king sticking to walls when jumping
+	fix issue with king sticking to walls when jumping - DONE
 	add health to pig 
 	add damage to king's attack
-	
 	
