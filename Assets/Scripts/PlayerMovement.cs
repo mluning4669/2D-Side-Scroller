@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerCombat playerCombat;
     private float timer = 0;
     private BoxCollider2D boxCollider;
+    private float horizontalMovement;
     
 
     public void Start()
@@ -30,37 +32,29 @@ public class PlayerMovement : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (Input.GetButtonDown("Attack") && timer <= 0)
-        {
-            playerCombat.Attack();
+        //if (Input.GetButtonDown("Attack") && timer <= 0)
+        //{
+        //    playerCombat.Attack();
 
-            timer = cooldown;
-        }
+        //    timer = cooldown;
+        //}
     }
 
     public void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(horizontalMovement * speed, rb.velocity.y);
         
         //flip player image when moving left and right
-        if (horizontalInput > 0.01f)
+        if (horizontalMovement > 0.01f)
         {
             transform.localScale = Vector3.one;
         }
-        else if (horizontalInput < -0.01f)
+        else if (horizontalMovement < -0.01f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (Input.GetKey(KeyCode.Space) && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jump);
-            anim.SetBool("IsJumping", true);
-        }
-
-
-        anim.SetBool("IsRunning", horizontalInput != 0 && IsGrounded());
+        anim.SetBool("IsRunning", horizontalMovement != 0 && IsGrounded());
         anim.SetBool("IsJumping", rb.velocity.y > 0.01f && !IsGrounded());
         anim.SetBool("IsFalling", rb.velocity.y < -0.01f && !IsGrounded());
     }
@@ -70,5 +64,29 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
 
         return hit.collider != null;
+    }
+
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if (context.performed && timer <= 0)
+        {
+            playerCombat.Attack();
+
+            timer = cooldown;
+        }
+    }
+
+    public void Jump(InputAction.CallbackContext context)
+    {
+        if (context.performed && IsGrounded())
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jump);
+            anim.SetBool("IsJumping", true);
+        }
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        horizontalMovement = context.ReadValue<Vector2>().x;
     }
 }
