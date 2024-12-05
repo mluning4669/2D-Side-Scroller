@@ -83,6 +83,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jump);
             anim.SetBool("IsJumping", true);
         }
+        else if (context.canceled)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            anim.SetBool("IsJumping", true);
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
