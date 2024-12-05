@@ -31,13 +31,6 @@ public class PlayerMovement : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-
-        //if (Input.GetButtonDown("Attack") && timer <= 0)
-        //{
-        //    playerCombat.Attack();
-
-        //    timer = cooldown;
-        //}
     }
 
     public void FixedUpdate()
