@@ -2196,6 +2196,7 @@ GameObject:
   - component: {fileID: 897861327}
   - component: {fileID: 897861330}
   - component: {fileID: 897861331}
+  - component: {fileID: 897861332}
   m_Layer: 6
   m_Name: Pig
   m_TagString: Untagged
@@ -2429,6 +2430,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1c0db296bbe0f4cad09a61348f7e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &897861332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897861323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5af9f719526a145bba288a92a62c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 2
+  maxHealth: 2
 --- !u!1 &1068349970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2833,7 @@ GameObject:
   - component: {fileID: 1118040953}
   - component: {fileID: 1118040952}
   - component: {fileID: 1118040951}
+  - component: {fileID: 1118040959}
   m_Layer: 6
   m_Name: Pig-2
   m_TagString: Untagged
@@ -3051,6 +3067,20 @@ Transform:
   - {fileID: 1356132636}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1118040959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118040950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e5af9f719526a145bba288a92a62c23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 2
+  maxHealth: 2
 --- !u!1 &1134014910
 GameObject:
   m_ObjectHideFlags: 0
