@@ -8,6 +8,7 @@ public enum EnemyState
     Idle,
     Patroling,
     Knockback,
+    Dead,
 }
 public class EnemyMovement : MonoBehaviour
 {   
@@ -115,7 +116,22 @@ public class EnemyMovement : MonoBehaviour
             case EnemyState.Knockback:
                 anim.SetBool("IsKnockingback", true);
                 break;
+
+            case EnemyState.Dead:
+                anim.SetBool("IsDead", true);
+                break;
         }
+    }
+
+    public void Kill()
+    {
+        ChangeState(EnemyState.Dead);
+        rb.velocity = Vector2.zero;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmosSelected()

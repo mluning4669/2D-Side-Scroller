@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
     //TODO: move these fields to a stats manager later
     [SerializeField] private float weaponRange;
     [SerializeField] private float knockbackForce;
+    [SerializeField] private int damage;
 
     public void Attack()
     {
@@ -25,6 +26,11 @@ public class PlayerCombat : MonoBehaviour
 
         if (enemies.Length > 0)
         {
+            if (!enemies[0].GetComponent<EnemyHealth>().ChangeHealth(-damage))
+            {
+                enemies[0].GetComponent<EnemyMovement>().Kill();
+                return; //return early because we don't want to knock a dead enemy back
+            }
             //knockback here
             EnemyKnockback enemyKnockback = enemies[0].GetComponent<EnemyKnockback>();
             if (enemyKnockback != null) //for things that cannot be knocked back like buildings
