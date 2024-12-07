@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
 
         if (enemies.Length > 0)
         {
-            if (!enemies[0].GetComponent<EnemyHealth>().ChangeHealth(-damage))
+            if (!enemies[0].GetComponent<EnemyHealth>().Damage(damage))
             {
                 enemies[0].GetComponent<EnemyMovement>().Kill();
                 return; //return early because we don't want to knock a dead enemy back

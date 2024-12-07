@@ -19,7 +19,7 @@ public class EnemyCombat : MonoBehaviour
     {
         if ((enemyLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
-            collision.gameObject.GetComponent<EnemyHealth>().ChangeHealth(-knockbackDamage);
+            collision.gameObject.GetComponent<EnemyHealth>().Damage(knockbackDamage);
 
             if (collision.rigidbody.TryGetComponent<EnemyKnockback>(out var enemyKnockback)) //for things that cannot be knocked back like buildings
             {

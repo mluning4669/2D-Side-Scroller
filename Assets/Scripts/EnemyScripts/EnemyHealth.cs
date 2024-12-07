@@ -12,6 +12,16 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    public bool Damage(int amount)
+    {
+        return ChangeHealth(-amount);
+    }
+
+    public bool Heal(int amount)
+    {
+        return ChangeHealth(amount);
+    }
+
     public bool ChangeHealth(int amount)
     {
         currentHealth += amount;

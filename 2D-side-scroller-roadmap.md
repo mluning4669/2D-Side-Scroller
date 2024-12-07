@@ -13,4 +13,4 @@ TODO:
 	make pigs able to damage other pigs after being knocked back - DONE
 	make knocked back pigs able to knock other pigs - DONE
 	refactor pigs damaging other pigs - DONE
-	
+	add "Damage" and "Heal" methods to PlayerHealth and EnemyHealth
