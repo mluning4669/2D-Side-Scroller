@@ -7,5 +7,9 @@ TODO:
 	make king's jump force proportional to the time the jump button is pressed - DONE
 	fix issue with king sticking to walls when jumping - DONE
 	add health to pig - DONE
-	add damage to king's attack
-	make pigs killable
+	add damage to king's attack - DONE
+	make pigs killable - DONE
+	fix bug where pig continues to walk into a wall when he is knocked into a wall - DONE
+	make pigs able to damage other pigs after being knocked back - DONE
+	refactor pigs damaging other pigs
+	make knocked back pigs able to knock other pigs

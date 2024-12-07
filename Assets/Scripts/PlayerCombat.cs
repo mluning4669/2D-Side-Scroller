@@ -7,7 +7,6 @@ public class PlayerCombat : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     [SerializeField] private Transform attackPoint;
-    
     [SerializeField] private LayerMask enemyLayer;
 
     //TODO: move these fields to a stats manager later

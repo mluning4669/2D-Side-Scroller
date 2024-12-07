@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -17,6 +18,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Transform detectionPoint;
     [SerializeField] private float obstacleDetectRange;
     [SerializeField] private LayerMask patrolLayer;
+    [SerializeField] private LayerMask enemyLayer;
 
     private EnemyState enemyState;
     private int facingDirection = -1;
@@ -134,7 +136,19 @@ public class EnemyMovement : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnDrawGizmosSelected()
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (enemyState == EnemyState.Knockback)
+        {
+            if ((enemyLayer.value & (1 << collision.gameObject.layer)) > 0)
+            {
+                collision.gameObject.GetComponent<EnemyHealth>().ChangeHealth(-1);
+
+            }
+        }
+    }
+
+    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(detectionPoint.position, obstacleDetectRange);
