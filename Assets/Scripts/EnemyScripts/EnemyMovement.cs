@@ -19,9 +19,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float obstacleDetectRange;
     [SerializeField] private LayerMask patrolLayer;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private int facingDirection = -1;
 
     private EnemyState enemyState;
-    private int facingDirection = -1;
 
     private Rigidbody2D rb;
     private Animator anim;
