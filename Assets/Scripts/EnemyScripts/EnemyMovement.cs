@@ -25,11 +25,15 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private EnemyCombat enemyCombat;
+    private float knockbackForce = 5;
+
     // Start is called before the first frame update
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        enemyCombat = GetComponent<EnemyCombat>();
     }
 
     // Update is called once per frame
@@ -140,11 +144,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (enemyState == EnemyState.Knockback)
         {
-            if ((enemyLayer.value & (1 << collision.gameObject.layer)) > 0)
-            {
-                collision.gameObject.GetComponent<EnemyHealth>().ChangeHealth(-1);
-
-            }
+            enemyCombat.StrikeOtherEnemy(collision);
         }
     }
 

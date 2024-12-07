@@ -11,5 +11,6 @@ TODO:
 	make pigs killable - DONE
 	fix bug where pig continues to walk into a wall when he is knocked into a wall - DONE
 	make pigs able to damage other pigs after being knocked back - DONE
-	refactor pigs damaging other pigs
-	make knocked back pigs able to knock other pigs
+	make knocked back pigs able to knock other pigs - DONE
+	refactor pigs damaging other pigs - DONE
+	
