@@ -1,6 +1,11 @@
 2D Sidescroller Roadmap
 
 TODO:
+	Fire off door open animation and king leave animation then door close animation
+	Find a way to jump up through a platform and land on top of it
+	Find a way to transition between doors with the camera. Make it look nice
+
+DONE:
 	fix issue with pig getting stuck in invisible wall - DONE
 	fix king's infinite jumping - DONE
 	use raycasting to test if king is on the ground or airborne - DONE
