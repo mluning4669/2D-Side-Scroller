@@ -12,4 +12,9 @@ public class DoorScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    public void Open(Rigidbody2D player)
+    {
+        player.transform.position = exit.transform.position;
+    }
 }

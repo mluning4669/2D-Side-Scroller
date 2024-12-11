@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cooldown;
     [SerializeField] private float jump;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask doorLayer;
 
     public PlayerCombat playerCombat;
     private float timer = 0;
@@ -69,6 +71,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private GameObject AtDoor()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.1f, doorLayer);
+        Debug.Log(hit.collider);
+        return hit.collider != null ? hit.collider.gameObject : null;
+    }
+
     public void Jump(InputAction.CallbackContext context)
     {
         if (context.performed && IsGrounded())
@@ -86,5 +95,18 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
+    }
+
+    public void Open(InputAction.CallbackContext context)
+    {
+        
+        GameObject door = AtDoor();
+        if (door != null)
+        {
+            Debug.Log("door is not null");
+            DoorScript doorScript = door.GetComponent<DoorScript>();
+
+            doorScript.Open(rb);
+        }
     }
 }
