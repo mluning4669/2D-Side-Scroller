@@ -87,4 +87,9 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMovement = context.ReadValue<Vector2>().x;
     }
+
+    public void Open(InputAction.CallbackContext context)
+    {
+        
+    }
 }
