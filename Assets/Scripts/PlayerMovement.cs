@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetBool("IsRunning", horizontalMovement != 0 && IsGrounded());
-        anim.SetBool("IsJumping", rb.velocity.y > 0.01f && !IsGrounded());
-        anim.SetBool("IsFalling", rb.velocity.y < -0.01f && !IsGrounded());
+        anim.SetBool("IsJumping", IsJumping());
+        anim.SetBool("IsFalling", IsFalling());
     }
 
     private bool IsGrounded()
@@ -59,6 +59,16 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
 
         return hit.collider != null;
+    }
+
+    private bool IsFalling()
+    {
+        return rb.velocity.y < -0.01f && !IsGrounded();
+    }
+
+    private bool IsJumping()
+    {
+        return rb.velocity.y > 0.01f && !IsGrounded();
     }
 
     public void Attack(InputAction.CallbackContext context)
@@ -85,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jump);
             anim.SetBool("IsJumping", true);
         }
-        else if (context.canceled)
+        else if (context.canceled && !IsFalling())
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             anim.SetBool("IsJumping", true);
@@ -99,14 +109,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void Open(InputAction.CallbackContext context)
     {
-        
-        GameObject door = AtDoor();
-        if (door != null)
+        if (context.canceled)
         {
-            Debug.Log("door is not null");
-            DoorScript doorScript = door.GetComponent<DoorScript>();
+            GameObject door = AtDoor();
+            if (door != null)
+            {
+                Debug.Log("door is not null");
+                DoorScript doorScript = door.GetComponent<DoorScript>();
 
-            doorScript.Open(rb);
+                doorScript.Open(rb);
+            }
         }
     }
 }

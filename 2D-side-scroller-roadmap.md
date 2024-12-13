@@ -1,6 +1,9 @@
 2D Sidescroller Roadmap
 
 TODO:
+	Make basic door functionality - DONE
+	Fix issue with spamming jump while in the air
+	Fix issue with going back through the door when releasing the up key
 	Fire off door open animation and king leave animation then door close animation
 	Find a way to jump up through a platform and land on top of it
 	Find a way to transition between doors with the camera. Make it look nice
