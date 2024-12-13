@@ -309,6 +309,14 @@ PrefabInstance:
       propertyPath: exit
       value: 
       objectReference: {fileID: 921462611}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1421968029}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: playerArrival
+      value: 
+      objectReference: {fileID: 1351011332}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2766,6 +2774,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1351011332 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+  m_PrefabInstance: {fileID: 4925441843062321212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369821606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,7 +3998,7 @@ Transform:
   m_GameObject: {fileID: 1421968029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.47, y: -5.5, z: 0}
+  m_LocalPosition: {x: 11.415, y: -5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4298,6 +4311,11 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!4 &1452513078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+  m_PrefabInstance: {fileID: 345198065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1915921387
 GameObject:
   m_ObjectHideFlags: 0
@@ -10337,6 +10355,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1421968029}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10350,6 +10372,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
     - target: {fileID: 2401200730871550812, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: m_Name
       value: Door-1-2
@@ -10398,6 +10424,14 @@ PrefabInstance:
       propertyPath: exit
       value: 
       objectReference: {fileID: 660507857}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1421968029}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: playerArrival
+      value: 
+      objectReference: {fileID: 1452513078}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

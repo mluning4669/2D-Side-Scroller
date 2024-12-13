@@ -5,6 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum KingState
+{
+    PlayerControl,
+    Leaving,
+    Arriving,
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 1.0f;
@@ -19,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float timer = 0;
     private BoxCollider2D boxCollider;
     private float horizontalMovement;
+    private KingState kingState;
     
 
     public void Start()
@@ -49,9 +57,14 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        anim.SetBool("IsRunning", horizontalMovement != 0 && IsGrounded());
-        anim.SetBool("IsJumping", IsJumping());
-        anim.SetBool("IsFalling", IsFalling());
+        anim.SetBool("IsRunning", horizontalMovement != 0 && IsGrounded() && IsPlayerControlled());
+        anim.SetBool("IsJumping", IsJumping() && IsPlayerControlled());
+        anim.SetBool("IsFalling", IsFalling() && IsPlayerControlled());
+    }
+
+    private bool IsPlayerControlled()
+    {
+        return kingState == KingState.PlayerControl;
     }
 
     private bool IsGrounded()
@@ -73,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.performed && timer <= 0)
+        if (context.performed && timer <= 0 && IsPlayerControlled())
         {
             playerCombat.Attack();
 
@@ -88,14 +101,41 @@ public class PlayerMovement : MonoBehaviour
         return hit.collider != null ? hit.collider.gameObject : null;
     }
 
+    public void ChangeState(KingState newState)
+    {
+        switch (kingState)
+        {
+            case KingState.Leaving:
+                anim.SetBool("IsLeaving", false);
+                break;
+
+            case KingState.Arriving:
+                anim.SetBool("IsArriving", false);
+                break;
+        }
+
+        kingState = newState;
+
+        switch (kingState)
+        {
+            case KingState.Leaving:
+                anim.SetBool("IsLeaving", true);
+                break;
+
+            case KingState.Arriving:
+                anim.SetBool("IsArriving", true);
+                break;
+        }
+    }
+
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && IsGrounded())
+        if (context.performed && IsGrounded() && IsPlayerControlled())
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
             anim.SetBool("IsJumping", true);
         }
-        else if (context.canceled && !IsFalling())
+        else if (context.canceled && !IsFalling() && IsPlayerControlled())
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             anim.SetBool("IsJumping", true);
@@ -104,12 +144,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        horizontalMovement = context.ReadValue<Vector2>().x;
+        if (IsPlayerControlled())
+        {
+            horizontalMovement = context.ReadValue<Vector2>().x;
+        }
     }
 
     public void Open(InputAction.CallbackContext context)
     {
-        if (context.canceled)
+        if (context.canceled && IsPlayerControlled())
         {
             GameObject door = AtDoor();
             if (door != null)
@@ -117,8 +160,19 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("door is not null");
                 DoorScript doorScript = door.GetComponent<DoorScript>();
 
-                doorScript.Open(rb);
+                doorScript.Open();
+                ChangeState(KingState.Leaving);
             }
         }
+    }
+
+    public void Arriving()
+    {
+        ChangeState(KingState.Arriving);
+    }
+
+    public void Arrived()
+    {
+        ChangeState(KingState.PlayerControl);
     }
 }
