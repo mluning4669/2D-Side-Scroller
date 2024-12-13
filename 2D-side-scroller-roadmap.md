@@ -4,7 +4,9 @@ TODO:
 	Make basic door functionality - DONE
 	Fix issue with spamming jump while in the air - DONE
 	Fix issue with going back through the door when releasing the up key - DONE
-	Fire off door open animation and king leave animation then door close animation
+	Fire off door open animation and king leave animation then door close animation - DONE
+	Fire off door open animation and king arrival animation then door close animation
+	Fix issue with king arriving slightly above ground when arriving through an entrance
 	Find a way to jump up through a platform and land on top of it
 	Find a way to transition between doors with the camera. Make it look nice
 
