@@ -9,32 +9,41 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private Transform playerArrival;
 
     private Rigidbody2D rb;
+    private Animator exitAnim;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim.SetBool("IsIdle", true);
+        exitAnim = exit.GetComponent<Animator>();
     }
 
     public void Open()
     {
-        //player.transform.position = exit.transform.position;
         anim.SetBool("IsIdle", false);
         anim.SetBool("IsOpening", true);
     }
 
-    public void Close()
+    public void ReturnToIdleFromIsOpening()
     {
-        player.transform.position = playerArrival.position;
         anim.SetBool("IsOpening", false);
-        anim.SetBool("IsClosing", true);
-    }
-
-    public void Idle()
-    {
-        anim.SetBool("IsClosing", false);
         anim.SetBool("IsIdle", true);
-        
     }
 
+    public void ReturnToIdleFromExitIsOpening()
+    {
+        anim.SetBool("ExitIsOpening", false);
+        anim.SetBool("IsIdle", true);
+    }
+
+    public void OpenExit()
+    {
+        exitAnim.SetBool("IsIdle", false);
+        exitAnim.SetBool("ExitIsOpening", true);
+    }
+
+    public void MoveKingToExit()
+    {
+        player.GetComponent<PlayerMovement>().MoveKingToExit(playerArrival);
+    }
 }

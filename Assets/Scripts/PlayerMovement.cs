@@ -97,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
     private GameObject AtDoor()
     {
         RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 0.1f, doorLayer);
-        Debug.Log(hit.collider);
         return hit.collider != null ? hit.collider.gameObject : null;
     }
 
@@ -157,13 +156,17 @@ public class PlayerMovement : MonoBehaviour
             GameObject door = AtDoor();
             if (door != null)
             {
-                Debug.Log("door is not null");
                 DoorScript doorScript = door.GetComponent<DoorScript>();
 
                 doorScript.Open();
                 ChangeState(KingState.Leaving);
             }
         }
+    }
+
+    public void MoveKingToExit(Transform exit)
+    {
+        rb.transform.position = exit.position;
     }
 
     public void Arriving()
