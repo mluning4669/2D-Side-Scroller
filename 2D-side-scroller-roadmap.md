@@ -1,10 +1,10 @@
 2D Sidescroller Roadmap
 
 TODO:
+	Move camera to room king is moving to
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart
-	Move camera to room king is moving to
 	Find a way to jump up through a platform and land on top of it
 	Find a way to transition between doors with the camera. Make it look nice
 
