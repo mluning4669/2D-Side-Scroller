@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 69201109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.6429615, y: 0.70899606, z: -10}
+  m_LocalPosition: {x: -22.95546, y: 0.70899606, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -301,6 +301,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 625213480}
     m_Modifications:
+    - target: {fileID: 153153705284787168, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: activeFocus
+      value: 
+      objectReference: {fileID: 1174398560}
     - target: {fileID: 2401200730871550812, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: m_Name
       value: Door-3-1
@@ -353,6 +357,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1421968029}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: roomFocus
+      value: 
+      objectReference: {fileID: 1867481741}
     - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: playerArrival
       value: 
@@ -645,6 +653,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2117759188}
     m_Modifications:
+    - target: {fileID: 153153705284787168, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: activeFocus
+      value: 
+      objectReference: {fileID: 1174398560}
     - target: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.4375
@@ -701,6 +713,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1421968029}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: roomFocus
+      value: 
+      objectReference: {fileID: 1590856289}
     - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: playerArrival
       value: 
@@ -802,7 +818,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.6429615, y: 0.70899606, z: -10}
+  m_LocalPosition: {x: -22.95546, y: 0.70899606, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3717,6 +3733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174398560}
+  - component: {fileID: 1174398561}
   m_Layer: 0
   m_Name: Active
   m_TagString: Untagged
@@ -3733,12 +3750,25 @@ Transform:
   m_GameObject: {fileID: 1174398559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.6429615, y: 0.70899606, z: 0}
+  m_LocalPosition: {x: -22.95546, y: 0.70899606, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1454851983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1174398561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174398559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5806458325dc5ef4a9a44feb7583d047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeFocus: {fileID: 1174398560}
 --- !u!1 &1190882240
 GameObject:
   m_ObjectHideFlags: 0
@@ -13663,6 +13693,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2117759188}
     m_Modifications:
+    - target: {fileID: 153153705284787168, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: activeFocus
+      value: 
+      objectReference: {fileID: 1174398560}
     - target: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.4375
@@ -13720,6 +13754,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1421968029}
     - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: roomFocus
+      value: 
+      objectReference: {fileID: 1590856289}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: playerArrival
       value: 
       objectReference: {fileID: 1898796498}
@@ -13736,6 +13774,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 52668108}
     m_Modifications:
+    - target: {fileID: 153153705284787168, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: activeFocus
+      value: 
+      objectReference: {fileID: 1174398560}
     - target: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.4375
@@ -13792,6 +13834,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1421968029}
+    - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
+      propertyPath: roomFocus
+      value: 
+      objectReference: {fileID: 1848747540}
     - target: {fileID: 4010085799646658176, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
       propertyPath: playerArrival
       value: 
