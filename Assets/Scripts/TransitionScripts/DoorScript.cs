@@ -8,12 +8,10 @@ public class DoorScript : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform playerArrival;
 
-    private Rigidbody2D rb;
     private Animator exitAnim;
 
     public void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         anim.SetBool("IsIdle", true);
         exitAnim = exit.GetComponent<Animator>();
     }
