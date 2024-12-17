@@ -1,7 +1,8 @@
 2D Sidescroller Roadmap
 
 TODO:
-	
+	Make pigs drop diamond upon death
+	Make camera transitions in rooms wider than 20 block units
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart

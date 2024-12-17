@@ -50,6 +50,6 @@ public class DoorScript : MonoBehaviour
 
     public void MoveCameraToExitRoom()
     {
-        gameObject.GetComponent<CameraScript>().MoveCameraToRoom(exitRoomFocus);
+        gameObject.GetComponent<RoomCameraScript>().MoveCameraToRoom(exitRoomFocus);
     }
 }
