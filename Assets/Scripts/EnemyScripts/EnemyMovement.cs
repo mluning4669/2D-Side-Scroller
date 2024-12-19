@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private EnemyCombat enemyCombat;
-    private float knockbackForce = 5;
+    private EnemyHealth enemyHealth;
 
     // Start is called before the first frame update
     public void Start()
@@ -34,6 +34,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         enemyCombat = GetComponent<EnemyCombat>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
@@ -52,7 +53,14 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Mathf.Abs(rb.velocity.x) < 0.01f)
             {
-                ChangeState(EnemyState.Patroling);
+                if (enemyHealth.IsDead())
+                {
+                    Kill();
+                }
+                else
+                {
+                    ChangeState(EnemyState.Patroling);
+                }
             }
         }
 

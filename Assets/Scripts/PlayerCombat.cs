@@ -25,11 +25,8 @@ public class PlayerCombat : MonoBehaviour
 
         if (enemies.Length > 0)
         {
-            if (!enemies[0].GetComponent<EnemyHealth>().Damage(damage))
-            {
-                enemies[0].GetComponent<EnemyMovement>().Kill();
-                return; //return early because we don't want to knock a dead enemy back
-            }
+            enemies[0].GetComponent<EnemyHealth>().Damage(damage);
+
             //knockback here
             EnemyKnockback enemyKnockback = enemies[0].GetComponent<EnemyKnockback>();
             if (enemyKnockback != null) //for things that cannot be knocked back like buildings

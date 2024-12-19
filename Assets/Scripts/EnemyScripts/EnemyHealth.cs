@@ -22,6 +22,11 @@ public class EnemyHealth : MonoBehaviour
         return ChangeHealth(amount);
     }
 
+    public bool IsDead()
+    {
+        return currentHealth <= 0;
+    }
+
     public bool ChangeHealth(int amount)
     {
         currentHealth += amount;
