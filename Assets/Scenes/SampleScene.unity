@@ -7146,6 +7146,7 @@ GameObject:
   - component: {fileID: 1421968036}
   - component: {fileID: 1421968037}
   - component: {fileID: 1421968038}
+  - component: {fileID: 1421968039}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -7528,6 +7529,19 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1421968039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421968029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 144d6aa27e52b36439e3b322fd6622ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeFocus: {fileID: 1174398560}
 --- !u!4 &1452513078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 547242720781688563, guid: b1bb4d8d40f4a654cad57b254bd877f2, type: 3}
