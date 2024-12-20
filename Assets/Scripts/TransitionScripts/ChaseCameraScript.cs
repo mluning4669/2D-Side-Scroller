@@ -7,7 +7,6 @@ using UnityEngine;
 public class ChaseCameraScript : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private Transform playerFocus;
     [SerializeField] private Transform roomFocus;
     [SerializeField] private Transform activeFocus;
     [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
@@ -18,12 +17,11 @@ public class ChaseCameraScript : MonoBehaviour
 
     public void Start()
     {
-        playerFocus.position = new Vector2(playerFocus.position.x, roomFocus.position.y);
         boxCollider = player.GetComponent<BoxCollider2D>();
     }
     public void FollowPlayer()
     {
-        cinemachineCamera.Follow = playerFocus;
+        cinemachineCamera.Follow = player.transform;
     }
 
     public void ReturnFocusToRoom()
