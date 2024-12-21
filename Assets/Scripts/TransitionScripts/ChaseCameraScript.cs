@@ -11,6 +11,7 @@ public class ChaseCameraScript : MonoBehaviour
     [SerializeField] private Transform activeFocus;
     [SerializeField] private CinemachineVirtualCamera cinemachineCamera;
     [SerializeField] private LayerMask roomFocusLayer;
+    [SerializeField] private LayerMask playerLayer;
 
     private BoxCollider2D boxCollider;
     
@@ -21,6 +22,7 @@ public class ChaseCameraScript : MonoBehaviour
     }
     public void FollowPlayer()
     {
+        Debug.Log("FollowPlayer called");
         cinemachineCamera.Follow = player.transform;
     }
 
@@ -32,26 +34,29 @@ public class ChaseCameraScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        FollowPlayer();
-        Debug.Log("Trigger Entered");
+        if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            FollowPlayer();
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Trigger Exited");
-        GameObject roomFocus = AtRoomFocus();
-
-        if (roomFocus != null) 
+        if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
-            activeFocus.position = roomFocus.transform.position;
-            ReturnFocusToRoom();
-        }
+            GameObject roomFocus = AtRoomFocus();
 
+            if (roomFocus != null)
+            {
+                activeFocus.position = roomFocus.transform.position;
+                ReturnFocusToRoom();
+            }
+        }
     }
 
     public GameObject AtRoomFocus()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 5, roomFocusLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.up, 10, roomFocusLayer);
         return hit.collider != null ? hit.collider.gameObject : null;
     }
 }
