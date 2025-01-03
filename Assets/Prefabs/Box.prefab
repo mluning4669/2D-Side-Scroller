@@ -183,3 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a6cc4a653f61f41a5f55a066fca4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  edgeCollider: {fileID: 7334159262784952660}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128

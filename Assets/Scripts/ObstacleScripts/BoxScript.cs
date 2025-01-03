@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BoxScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EdgeCollider2D edgeCollider;
+    [SerializeField] private LayerMask playerLayer;
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            edgeCollider.enabled = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        
+        if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
+        {
+            edgeCollider.enabled = true;
+        }
     }
 }
