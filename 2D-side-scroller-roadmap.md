@@ -1,6 +1,7 @@
 2D Sidescroller Roadmap
 
 TODO:
+	Find way to disable physics for objects before you destroy them
 	Make pigs drop diamond upon death
 	Add Health to king
 	Make King killable
