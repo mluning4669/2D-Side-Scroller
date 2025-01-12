@@ -1,15 +1,19 @@
 2D Sidescroller Roadmap
 
 TODO:
-	Find way to disable physics for objects before you destroy them
+	Use object pooling with enemies and diamonds
+		- Create object pool
+		- create pool for diamonds
+		- create pool for enemies
 	Make pigs drop diamond upon death
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart
-	Use object pooling with enemies and diamonds
+	
 	
 
 DONE:
+	Find way to disable physics for objects before you destroy them - DONE
 	Find a way to jump up through a platform and land on top of it - DONE (for boxes)
 	Make pigs knocked back on billing blow - DONE
 	Make camera transitions in rooms wider than 20 block units - DONE
