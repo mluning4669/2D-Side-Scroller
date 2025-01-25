@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class BigDiamondScript : MonoBehaviour
 {
-    [SerializeField] private GameObject bigDiamond;
     [SerializeField] private Animator anim;
     [SerializeField] private LayerMask playerLayer;
+
+    private ObjectPool<BigDiamondScript> _pool;
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
@@ -15,8 +17,13 @@ public class BigDiamondScript : MonoBehaviour
         }
     }
 
-    public void DestroyDiamond()
+    public void DeactivateDiamond()
     {
-        bigDiamond.SetActive(false);
+        gameObject.SetActive(false);
+    }
+
+    public void SetPool(ObjectPool<BigDiamondScript> pool)
+    {
+        _pool = pool;
     }
 }

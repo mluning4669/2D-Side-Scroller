@@ -194,8 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcae90af80ea67745ad42f879eeb6328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bigDiamond: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 7559030895371703703}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128

@@ -1,11 +1,11 @@
 2D Sidescroller Roadmap
 
 TODO:
+	Make pigs drop diamond upon death
 	Use object pooling with enemies and diamonds
 		- Create object pool
 		- create pool for diamonds
 		- create pool for enemies
-	Make pigs drop diamond upon death
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart
