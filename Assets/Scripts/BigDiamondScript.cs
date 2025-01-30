@@ -19,11 +19,12 @@ public class BigDiamondScript : MonoBehaviour
 
     public void DeactivateDiamond()
     {
-        gameObject.SetActive(false);
+        _pool.Release(this);
     }
 
     public void SetPool(ObjectPool<BigDiamondScript> pool)
     {
         _pool = pool;
     }
+
 }

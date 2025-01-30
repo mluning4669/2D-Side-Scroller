@@ -143,8 +143,13 @@ public class EnemyMovement : MonoBehaviour
         rb.velocity = Vector2.zero;
     }
 
-    public void Destroy()
+    public void DropLoot()
     {
+        LootManager.Instance.DropBigDiamond(gameObject.transform);
+    }
+
+    public void Destroy()
+    { 
         Destroy(gameObject);
     }
 
