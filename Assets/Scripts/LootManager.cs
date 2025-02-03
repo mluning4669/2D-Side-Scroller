@@ -6,6 +6,7 @@ public class LootManager : MonoBehaviour
 {
     public static LootManager Instance {  get; private set; }
     private BigDiamondSpawner _bigDiamondSpawner;
+    private int _bigDiamondsCollectedByPlayer = 0;
 
     private void Awake()
     {
@@ -24,6 +25,12 @@ public class LootManager : MonoBehaviour
     void Start()
     {
         _bigDiamondSpawner = GetComponent<BigDiamondSpawner>();
+    }
+
+    public void CollectBigDiamond()
+    {
+        _bigDiamondsCollectedByPlayer++;
+        Debug.Log($"Big diamonds collected: {_bigDiamondsCollectedByPlayer}");
     }
 
     public void DropBigDiamond(Transform enemyTransform)

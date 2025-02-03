@@ -1,10 +1,7 @@
 2D Sidescroller Roadmap
 
 TODO:
-	
-	Use object pooling with enemies and diamonds
-		- create pool for diamonds - DONE
-		- create pool for enemies
+	Track how many diamonds the king as collected
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart
@@ -12,6 +9,8 @@ TODO:
 	
 
 DONE:
+	Create pool for diamonds - DONE
+	Expand size of second room - DONE
 	Make pigs drop diamond upon death - DONE
 	Find way to disable physics for objects before you destroy them - DONE
 	Find a way to jump up through a platform and land on top of it - DONE (for boxes)

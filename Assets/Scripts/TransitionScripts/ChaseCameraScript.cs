@@ -22,7 +22,6 @@ public class ChaseCameraScript : MonoBehaviour
     }
     public void FollowPlayer()
     {
-        Debug.Log("FollowPlayer called");
         cinemachineCamera.Follow = player.transform;
     }
 

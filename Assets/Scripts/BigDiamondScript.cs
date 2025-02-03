@@ -13,7 +13,11 @@ public class BigDiamondScript : MonoBehaviour
     {
         if ((playerLayer.value & (1 << collision.gameObject.layer)) > 0)
         {
-            anim.SetBool("IsHit", true);
+            if (!anim.GetBool("IsHit"))
+            {
+                LootManager.Instance.CollectBigDiamond();
+                anim.SetBool("IsHit", true);
+            }
         }
     }
 
