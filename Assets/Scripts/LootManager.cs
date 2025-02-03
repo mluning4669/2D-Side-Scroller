@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LootManager : MonoBehaviour
 {
     public static LootManager Instance {  get; private set; }
     private BigDiamondSpawner _bigDiamondSpawner;
-    private int _bigDiamondsCollectedByPlayer = 0;
+    [SerializeField] private int _bigDiamondsCollectedByPlayer = 0;
+    [SerializeField] private Text _bigDiamondText;
 
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class LootManager : MonoBehaviour
     public void CollectBigDiamond()
     {
         _bigDiamondsCollectedByPlayer++;
-        Debug.Log($"Big diamonds collected: {_bigDiamondsCollectedByPlayer}");
+        _bigDiamondText.text = _bigDiamondsCollectedByPlayer.ToString();
     }
 
     public void DropBigDiamond(Transform enemyTransform)
