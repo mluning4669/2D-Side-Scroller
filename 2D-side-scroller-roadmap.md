@@ -1,7 +1,17 @@
 2D Sidescroller Roadmap
 
 TODO:
-	Track how many diamonds the king as collected
+
+	Add Sound effects
+		- walking
+		- jumping
+		- attacks
+		- hits
+		- pig knockout
+		- diamond pickup
+		- music?
+	Animate big diamond sprite in UI
+	Replace text with numeric sprites
 	Add Health to king
 	Make King killable
 	Make a kill screen with option to restart
@@ -9,6 +19,8 @@ TODO:
 	
 
 DONE:
+	Track how many diamonds the king has collected - DONE
+	Replace BigDiamond in UI with big diamond sprite - DONE
 	Create pool for diamonds - DONE
 	Expand size of second room - DONE
 	Make pigs drop diamond upon death - DONE

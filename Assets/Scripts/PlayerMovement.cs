@@ -27,11 +27,13 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float horizontalMovement;
     private KingState kingState;
+    private PlayerAudio playerAudio;
     
 
     public void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        playerAudio = GetComponentInChildren<PlayerAudio>();
     }
 
     // Update is called once per frame
@@ -133,6 +135,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
             anim.SetBool("IsJumping", true);
+            playerAudio.PlayJumpEffect();
+
         }
         else if (context.canceled && !IsFalling() && IsPlayerControlled())
         {
