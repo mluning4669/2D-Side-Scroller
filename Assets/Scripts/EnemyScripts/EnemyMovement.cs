@@ -27,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
     private Animator anim;
     private EnemyCombat enemyCombat;
     private EnemyHealth enemyHealth;
+    private EnemyAudio enemyAudio;
 
     // Start is called before the first frame update
     public void Start()
@@ -35,6 +36,7 @@ public class EnemyMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         enemyCombat = GetComponent<EnemyCombat>();
         enemyHealth = GetComponent<EnemyHealth>();
+        enemyAudio = GetComponent<EnemyAudio>();
     }
 
     // Update is called once per frame
@@ -69,6 +71,7 @@ public class EnemyMovement : MonoBehaviour
     public void StartKnockback(Vector2 velocity)
     {
         ChangeState(EnemyState.Knockback);
+        enemyAudio.PlayHitEfect();
         rb.velocity = velocity;
     }
 
@@ -140,6 +143,7 @@ public class EnemyMovement : MonoBehaviour
     public void Kill()
     {
         ChangeState(EnemyState.Dead);
+        enemyAudio.PlayDeathEffect();
         rb.velocity = Vector2.zero;
     }
 

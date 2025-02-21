@@ -134,9 +134,8 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && IsGrounded() && IsPlayerControlled())
         {
             rb.velocity = new Vector2(rb.velocity.x, jump);
-            anim.SetBool("IsJumping", true);
             playerAudio.PlayJumpEffect();
-
+            anim.SetBool("IsJumping", true);
         }
         else if (context.canceled && !IsFalling() && IsPlayerControlled())
         {
