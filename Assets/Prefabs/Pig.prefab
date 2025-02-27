@@ -25,7 +25,38 @@ Transform:
   m_GameObject: {fileID: 1314790307209396636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.37, y: 0.172, z: 0}
+  m_LocalPosition: {x: -0.33749878, y: 0.21250017, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325162759922055145}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5750121300731875132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319994757680413376}
+  m_Layer: 6
+  m_Name: GroundDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319994757680413376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5750121300731875132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.14999962, y: -0.4124999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,6 +104,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6542726957455063564}
+  - {fileID: 1319994757680413376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1694575690136191447
@@ -269,13 +301,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   detectionPoint: {fileID: 6542726957455063564}
+  groundDetector: {fileID: 1319994757680413376}
   obstacleDetectRange: 0.15
   patrolLayer:
     serializedVersion: 2
-    m_Bits: 1728
+    m_Bits: 1984
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 2304
   facingDirection: -1
 --- !u!114 &1710554872202632752
 MonoBehaviour:
@@ -301,8 +337,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5af9f719526a145bba288a92a62c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 2
+  maxHealth: 2
 --- !u!114 &830306556342786615
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,9 +16,11 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private Transform detectionPoint;
+    [SerializeField] private Transform groundDetector;
     [SerializeField] private float obstacleDetectRange;
     [SerializeField] private LayerMask patrolLayer;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask groundLayer;
     [SerializeField] private int facingDirection = -1;
 
     private EnemyState enemyState;
@@ -91,8 +93,9 @@ public class EnemyMovement : MonoBehaviour
 
     private bool DirectionChangeCheck()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, patrolLayer);
-        return hits.Length > 0;
+        Collider2D[] patrolHits = Physics2D.OverlapCircleAll(detectionPoint.position, obstacleDetectRange, patrolLayer);
+        Collider2D[] groundHits = Physics2D.OverlapCircleAll(groundDetector.position, obstacleDetectRange, groundLayer);
+        return patrolHits.Length > 0 || groundHits.Length == 0;
     }
 
     void Flip()
@@ -169,5 +172,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(detectionPoint.position, obstacleDetectRange);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(groundDetector.position, obstacleDetectRange);
     }
 }
