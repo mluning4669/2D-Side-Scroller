@@ -1,13 +1,13 @@
 2D Sidescroller Roadmap
 
 TODO:
-
+	rework pig collision detection
 	Add Sound effects
 		- walking
-		- jumping
+		- jumping - DONE
 		- attacks
-		- hits
-		- pig knockout
+		- hits - DONE
+		- pig knockout - DONE
 		- diamond pickup
 		- music?
 	Animate big diamond sprite in UI
