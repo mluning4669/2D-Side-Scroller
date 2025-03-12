@@ -1,7 +1,7 @@
 2D Sidescroller Roadmap
 
 TODO:
-	rework pig collision detection
+	rework pig collision detection - DONE
 	Add Sound effects
 		- walking
 		- jumping - DONE
@@ -50,5 +50,5 @@ DONE:
 	add "Damage" and "Heal" methods to EnemyHealth - DONE
 
 OTHER:
-	Fix issue with king arriving slightly above ground when arriving through an entrance - POSTPONED BECAUSE I HAVE NO IDEA HOW TO FIX
+	Fix issue with king arriving slightly above ground when arriving through an entrance - NOT AN ISSUE BECAUSE IT IS ACTUALLY PART OF THE ARRIVAL ANIMATION
 	Rework door code and maybe control them from a single script instead of the spaghettified mess you've made for yourself
